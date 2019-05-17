@@ -11,4 +11,11 @@ describe('POST /games', () => {
                 expect(res.status).toBe(200)
             })
     })
+    it('should return 422 status when getting incorrect data', () => {
+        const badGame = {title: '', genre: 'Nothing', releaseYear: 'never'}
+        return request(server)
+            .post('/games')
+            .send(badGame)
+            .expect(422)
+    })
 })
