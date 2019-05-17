@@ -12,7 +12,7 @@ describe('POST /games', () => {
             })
     })
     it('should return 422 status when getting incorrect data', () => {
-        const badGame = {title: '', genre: 'Nothing', releaseYear: 'never'}
+        const badGame = {releaseYear: ''}
         return request(server)
             .post('/games')
             .send(badGame)
@@ -23,7 +23,7 @@ describe('POST /games', () => {
         return request(server)
             .post('/games')
             .send(game)
-            .expect(game.releaseYear).not.toBeNaN()
+            .expect(game.releaseYear).toBeNaN()
     })
 })
 
@@ -37,7 +37,7 @@ describe('GET /games', () => {
         return request(server)
             .get('/games')
             .then(res => {
-                expect(res.body).toEqual([])
+                expect(res.body).toContain([])
             })
     })
     it('returns JSON', () => {
