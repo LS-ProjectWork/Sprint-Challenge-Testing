@@ -40,4 +40,11 @@ describe('GET /games', () => {
                 expect(res.body).toEqual([])
             })
     })
+    it('returns JSON', () => {
+        return request(server)
+            .get('/games')
+            .then(res => {
+                expect(res.type).toBe('application/json')
+            })
+    })
 })
