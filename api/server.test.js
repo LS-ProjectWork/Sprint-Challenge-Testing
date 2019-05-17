@@ -26,3 +26,11 @@ describe('POST /games', () => {
             .expect(game.releaseYear).not.toBeNaN()
     })
 })
+
+describe('GET /games', () => {
+    it('should return 200 status', () => {
+        return request(server)
+            .get('/games')
+            .expect(200)
+    })
+})
