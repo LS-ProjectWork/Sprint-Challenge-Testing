@@ -39,7 +39,7 @@ describe('GET /games', () => {
         return request(server)
             .get('/games')
             .then(res => {
-                expect(res.body).toContain([])
+                expect(Array.isArray(res.body)).toBeTruthy()
             })
     })
     it('returns JSON', () => {
