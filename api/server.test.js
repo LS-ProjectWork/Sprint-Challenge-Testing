@@ -33,4 +33,11 @@ describe('GET /games', () => {
             .get('/games')
             .expect(200)
     })
+    it('should return an array', () => {
+        return request(server)
+            .get('/games')
+            .then(res => {
+                expect(res.body).toEqual([])
+            })
+    })
 })
