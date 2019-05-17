@@ -1,4 +1,5 @@
 node_modules
 .DS_Store
 .vscode
-data/
+data/tester.db3
+data/tester.db3
