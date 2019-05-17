@@ -18,12 +18,14 @@ describe('POST /games', () => {
             .send(badGame)
             .expect(422)
     })
-    it('release year should be a number', () => {
+    it('should return json', () => {
         const game = {title: 'GTA V', genre: 'Action-Adventure', releaseYear: 2013}
         return request(server)
             .post('/games')
             .send(game)
-            .expect(game.releaseYear).toBeNaN()
+            .then(res => {
+                expect(res.type).toBe('application/json')
+            })
     })
 })
 
